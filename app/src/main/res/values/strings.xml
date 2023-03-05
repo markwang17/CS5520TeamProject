@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">CS5520_TeamProject_IAmHere</string>
+    <string name="image_content_description">image shows Qualitative Index of certain Pollutant</string>
+    <string name="pollutant_add_success">pollution data added successfully</string>
+    <string name="channel_name">channel_name</string>
+    <string name="channel_description">channel_description</string>
+    <string name="channel_id">channel_id</string>
+</resources>

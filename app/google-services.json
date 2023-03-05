@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "64321167849",
+    "project_id": "a8-stick-it-to--em",
+    "storage_bucket": "a8-stick-it-to--em.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:64321167849:android:e5c169afae6c0c4faeeb78",
+        "android_client_info": {
+          "package_name": "edu.northestern.cs5520_teamproject_iamhere"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "64321167849-t2sldih4dqjh5c07ias1flhhlnrl8drm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCcFhN5VenF8koD2_qdBh6RJR7kSLffGlc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "64321167849-t2sldih4dqjh5c07ias1flhhlnrl8drm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
