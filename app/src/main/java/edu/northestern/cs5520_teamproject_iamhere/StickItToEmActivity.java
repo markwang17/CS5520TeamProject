@@ -86,6 +86,10 @@ public class StickItToEmActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 int selectedStickerId = (Integer) parent.getAdapter().getItem(position);
                 String toUsername = editText.getText().toString();
+                if (editText.getText().toString().equals("")) {
+                    Toast.makeText(getApplicationContext(),"Invalid username!",Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 DatabaseReference sticker_count = mDatabase.child("users").child(username).child("sticker_sent_count").child("" + selectedStickerId);
                 Task t1 = sticker_count.child("count").setValue(ServerValue.increment(1));
                 Task t2 = sticker_count.child("sticker_id").setValue(selectedStickerId);
