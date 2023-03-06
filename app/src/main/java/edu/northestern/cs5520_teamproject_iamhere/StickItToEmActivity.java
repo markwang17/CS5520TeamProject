@@ -81,17 +81,6 @@ public class StickItToEmActivity extends AppCompatActivity {
             }
         });
 
-        Button button3 = findViewById(R.id.buttonLogout);
-        button3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                mDatabase.child("users").child(username).child("message_queue").removeEventListener(childEventListenerForCurrentUser);
-                Intent intent = new Intent(StickItToEmActivity.this, StickItToEmLoginActivity.class);
-                startActivity(intent);
-            }
-        });
-
-
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -161,6 +150,17 @@ public class StickItToEmActivity extends AppCompatActivity {
             }
         };
         mDatabase.child("users").child(username).child("message_queue").addChildEventListener(childEventListenerForCurrentUser);
+
+
+        Button button3 = findViewById(R.id.buttonLogout);
+        button3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mDatabase.child("users").child(username).child("message_queue").removeEventListener(childEventListenerForCurrentUser);
+                Intent intent = new Intent(StickItToEmActivity.this, StickItToEmLoginActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     public void createNotificationChannel() {

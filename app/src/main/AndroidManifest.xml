@@ -39,10 +39,16 @@
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" >
         </activity>
         <activity android:name=".StickItToEmLoginActivity"/>
-        <activity android:name=".StickItToEmActivity"/>
-        <activity android:name=".ReceiveNotificationActivity"/>
-        <activity android:name=".MessageHistoryActivity"/>
-        <activity android:name=".StickerCountActivity"/>
+        <activity android:name=".StickItToEmActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+        <activity android:name=".ReceiveNotificationActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+        <activity android:name=".MessageHistoryActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+        <activity android:name=".StickerCountActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+        <activity android:name=".AboutActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
 
 
     </application>

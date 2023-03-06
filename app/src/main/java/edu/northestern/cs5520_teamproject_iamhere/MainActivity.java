@@ -22,6 +22,9 @@ public class MainActivity extends AppCompatActivity {
         } else if (theId == R.id.stick_it_to_em_button) {
             Intent intent = new Intent(this, StickItToEmLoginActivity.class);
             startActivity(intent);
+        } else if (theId == R.id.about_button) {
+            Intent intent = new Intent(this, AboutActivity.class);
+            startActivity(intent);
         }
     }
 }
