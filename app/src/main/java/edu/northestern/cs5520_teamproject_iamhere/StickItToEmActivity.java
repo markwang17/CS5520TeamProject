@@ -213,7 +213,7 @@ public class StickItToEmActivity extends AppCompatActivity {
         intent.putExtra("sticker_id", sticker_id);
         intent.putExtra("from_username", from_username);
         intent.putExtra("username", username);
-        PendingIntent pIntent = PendingIntent.getActivity(this, (int) System.currentTimeMillis(), intent, 0);
+        PendingIntent pIntent = PendingIntent.getActivity(this, (int) System.currentTimeMillis(), intent, PendingIntent.FLAG_IMMUTABLE);
 
         // Build notification
         // Need to define a channel ID after Android Oreo
