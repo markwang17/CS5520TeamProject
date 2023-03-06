@@ -34,6 +34,7 @@ import com.google.firebase.database.ServerValue;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -46,6 +47,7 @@ public class StickItToEmActivity extends AppCompatActivity {
     private EditText editText;
     private String username;
     private Integer[] stickerIds;
+    private ChildEventListener childEventListenerForCurrentUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,6 +80,17 @@ public class StickItToEmActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        Button button3 = findViewById(R.id.buttonLogout);
+        button3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mDatabase.child("users").child(username).child("message_queue").removeEventListener(childEventListenerForCurrentUser);
+                Intent intent = new Intent(StickItToEmActivity.this, StickItToEmLoginActivity.class);
+                startActivity(intent);
+            }
+        });
+
 
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -125,31 +138,29 @@ public class StickItToEmActivity extends AppCompatActivity {
             }
         });
 
-        mDatabase.child("users").child(username).child("message_queue").addChildEventListener(
-                new ChildEventListener() {
-                    @Override
-                    public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-                        Log.d(TAG, "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-                        processSticker(snapshot);
-                    }
+        childEventListenerForCurrentUser = new ChildEventListener() {
+            @Override
+            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+                processSticker(snapshot);
+            }
 
-                    @Override
-                    public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-                    }
+            @Override
+            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+            }
 
-                    @Override
-                    public void onChildRemoved(@NonNull DataSnapshot snapshot) {
-                    }
+            @Override
+            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
+            }
 
-                    @Override
-                    public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-                    }
+            @Override
+            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+            }
 
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
-                    }
-                }
-        );
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+            }
+        };
+        mDatabase.child("users").child(username).child("message_queue").addChildEventListener(childEventListenerForCurrentUser);
     }
 
     public void createNotificationChannel() {
@@ -232,7 +243,12 @@ public class StickItToEmActivity extends AppCompatActivity {
 
         NotificationManagerCompat notificationManager = NotificationManagerCompat.from(this);
         // // notificationId is a unique int for each notification that you must define
-        notificationManager.notify(0, notifyBuild.build());
+        int m = (int) ((date / 1000L) % Integer.MAX_VALUE);
+        notificationManager.notify(m, notifyBuild.build());
     }
 
+    @Override
+    public void onBackPressed() {
+        // ban back button for this activity
+    }
 }

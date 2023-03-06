@@ -90,5 +90,9 @@ public class MessageHistoryActivity extends AppCompatActivity {
         messageAdapter.notifyDataSetChanged();
     }
 
+    @Override
+    public void onBackPressed() {
+        // ban back button for this activity
+    }
 
 }

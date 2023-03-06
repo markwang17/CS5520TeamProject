@@ -35,4 +35,9 @@ public class StickItToEmLoginActivity extends AppCompatActivity {
         });
 
     }
+
+    @Override
+    public void onBackPressed() {
+        // ban back button for this activity
+    }
 }

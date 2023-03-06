@@ -51,4 +51,9 @@ public class ReceiveNotificationActivity extends AppCompatActivity {
             }
         });
     }
+
+    @Override
+    public void onBackPressed() {
+        // ban back button for this activity
+    }
 }

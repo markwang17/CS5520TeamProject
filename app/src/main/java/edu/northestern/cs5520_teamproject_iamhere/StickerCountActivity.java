@@ -88,4 +88,9 @@ public class StickerCountActivity extends AppCompatActivity {
         stickerCounts.add(stickerCount);
         stickerCountAdapter.notifyDataSetChanged();
     }
+
+    @Override
+    public void onBackPressed() {
+        // ban back button for this activity
+    }
 }
