@@ -38,6 +38,9 @@ public class MainActivity extends AppCompatActivity {
         } else if (theId == R.id.buttonSetting) {
             Intent intent = new Intent(this, SettingActivity.class);
             startActivity(intent);
+        } else if (theId == R.id.buttonMap) {
+            Intent intent = new Intent(this, MapActivity.class);
+            startActivity(intent);
         }
     }
 }
