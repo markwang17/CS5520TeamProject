@@ -8,6 +8,7 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
+import android.net.Uri;
 import android.os.IBinder;
 import android.widget.Toast;
 
@@ -28,7 +29,7 @@ public class VibrationDetectorService extends Service implements SensorEventList
     public void onCreate() {
         super.onCreate();
         SharedPreferences preferences = getSharedPreferences("MyPreferences", MODE_PRIVATE);
-        emergency_trig_times = 2 * preferences.getInt("numOfShaking", 5);
+        emergency_trig_times = 2 * preferences.getInt("numOfShaking", 5) - 1;
 
         sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         accelerometer = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
@@ -64,8 +65,14 @@ public class VibrationDetectorService extends Service implements SensorEventList
                         if (current_shake_time == emergency_trig_times) {
                             current_shake_time = 0;
                             lastShakeTime = 0;
-                            // TODO
-                            Toast.makeText(getApplicationContext(), "!!!!", Toast.LENGTH_SHORT).show();
+
+                            SharedPreferences preferences = getSharedPreferences("MyPreferences", MODE_PRIVATE);
+                            String emergency_contact = preferences.getString("emergencyContact", "8888");
+                            Intent intent = new Intent(Intent.ACTION_DIAL);
+                            intent.setData(Uri.parse("tel:" + emergency_contact));
+                            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                            startActivity(intent);
+
                         } else {
                             lastShakeTime = curTime;
                         }

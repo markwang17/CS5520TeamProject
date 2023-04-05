@@ -12,7 +12,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class SettingActivity extends AppCompatActivity {
-    private Switch aSwitch;
+    private Switch shakeSwitch;
     private EditText editTextNumber;
     private EditText editTextPhone;
     private SharedPreferences preferences;
@@ -24,15 +24,15 @@ public class SettingActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setting);
 
-        aSwitch = findViewById(R.id.switchShake);
+        shakeSwitch = findViewById(R.id.switchShake);
         editTextNumber = findViewById(R.id.editTextNumber);
         editTextPhone = findViewById(R.id.editTextPhone);
 
         preferences = getSharedPreferences("MyPreferences", MODE_PRIVATE);
 
-        aSwitch.setChecked(preferences.getBoolean("isShakingEmergencyOn", false));
+        shakeSwitch.setChecked(preferences.getBoolean("isShakingEmergencyOn", false));
         editTextNumber.setText(preferences.getInt("numOfShaking", 5) + "");
-        editTextPhone.setText(preferences.getString("emergencyContact", "911"));
+        editTextPhone.setText(preferences.getString("emergencyContact", "8888"));
     }
 
     public void onClickBack(View view) {
@@ -42,7 +42,7 @@ public class SettingActivity extends AppCompatActivity {
 
     public void onClickSave(View view) {
         SharedPreferences.Editor editor = preferences.edit();
-        editor.putBoolean("isShakingEmergencyOn", aSwitch.isChecked());
+        editor.putBoolean("isShakingEmergencyOn", shakeSwitch.isChecked());
         editor.putInt("numOfShaking", Integer.parseInt(editTextNumber.getText().toString()));
         editor.putString("emergencyContact", editTextPhone.getText().toString());
         editor.apply();
