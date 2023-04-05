@@ -10,6 +10,8 @@
         android:value="true" />
 
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -21,6 +23,12 @@
         android:theme="@style/Theme.CS5520_TeamProject_IAmHere"
         tools:targetApi="31"
         android:usesCleartextTraffic="true" >
+
+        <service
+            android:name=".service.VibrationDetectorService"
+            android:enabled="true"
+            android:exported="false" />
+
         <activity
             android:name=".MainActivity"
             android:configChanges="orientation|screenSize|navigation|keyboard|keyboardHidden"
@@ -48,6 +56,8 @@
         <activity android:name=".StickerCountActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
         <activity android:name=".AboutActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+        <activity android:name=".SettingActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
 
 
