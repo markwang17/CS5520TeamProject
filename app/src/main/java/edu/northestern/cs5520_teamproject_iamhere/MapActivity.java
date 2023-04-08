@@ -3,11 +3,16 @@ package edu.northestern.cs5520_teamproject_iamhere;
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
+import android.net.Uri;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -25,6 +30,8 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
     private GoogleMap googleMap;
     SupportMapFragment mapFragment;
     private LocationManager locationManager;
+    private double latitude;
+    private double longitude;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -85,10 +92,27 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
 
     @Override
     public void onLocationChanged(@NonNull Location location) {
-        LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
+        latitude = location.getLatitude();
+        longitude = location.getLongitude();
+        LatLng latLng = new LatLng(latitude, longitude);
         CameraPosition cameraPosition = new CameraPosition.Builder().target(latLng).zoom(15).build();
         googleMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
     }
 
+    public void onClickSend(View view) {
+        if (latitude == 0 && longitude == 0) {
+            Toast.makeText(getApplicationContext(), "Try again in a few seconds!", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        SharedPreferences preferences = getSharedPreferences("MyPreferences", MODE_PRIVATE);
+        String phoneNumber = preferences.getString("emergencyContact", "8888");
+        String message = String.format("http://www.google.com/maps/place/%s,%s/@%s,%s,20z", latitude, longitude, latitude, longitude);
+
+        Intent sendIntent = new Intent(Intent.ACTION_SENDTO);
+        sendIntent.setData(Uri.parse("smsto:" + phoneNumber));
+        sendIntent.putExtra("sms_body", message);
+
+        startActivity(sendIntent);
+    }
 }
 
