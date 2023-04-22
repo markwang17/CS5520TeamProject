@@ -1,4 +1,4 @@
-package edu.northestern.cs5520_teamproject_iamhere;
+package edu.northestern.cs5520_teamproject_iamhere.atYourService;
 
 import com.google.gson.annotations.SerializedName;
 

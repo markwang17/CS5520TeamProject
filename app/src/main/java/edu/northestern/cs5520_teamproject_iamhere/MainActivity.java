@@ -7,7 +7,7 @@ import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import edu.northestern.cs5520_teamproject_iamhere.service.VibrationDetectorService;
+import edu.northestern.cs5520_teamproject_iamhere.service.EmergencyService;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -19,20 +19,14 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences preferences = getSharedPreferences("MyPreferences", MODE_PRIVATE);
         boolean isShakingEmergencyOn = preferences.getBoolean("isShakingEmergencyOn", false);
         if (isShakingEmergencyOn) {
-            Intent intent = new Intent(this, VibrationDetectorService.class);
+            Intent intent = new Intent(this, EmergencyService.class);
             startService(intent);
         }
     }
 
     public void onClick(View view) {
         int theId = view.getId();
-        if(theId == R.id.at_your_service_button) {
-            Intent intent = new Intent(this, AtYourServiceActivity.class);
-            startActivity(intent);
-        } else if (theId == R.id.stick_it_to_em_button) {
-            Intent intent = new Intent(this, StickItToEmLoginActivity.class);
-            startActivity(intent);
-        } else if (theId == R.id.about_button) {
+        if (theId == R.id.about_button) {
             Intent intent = new Intent(this, AboutActivity.class);
             startActivity(intent);
         } else if (theId == R.id.buttonSetting) {

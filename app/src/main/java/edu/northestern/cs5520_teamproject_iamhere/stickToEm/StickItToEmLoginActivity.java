@@ -1,4 +1,4 @@
-package edu.northestern.cs5520_teamproject_iamhere;
+package edu.northestern.cs5520_teamproject_iamhere.stickToEm;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,6 +8,8 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import edu.northestern.cs5520_teamproject_iamhere.R;
 
 public class StickItToEmLoginActivity extends AppCompatActivity {
     private EditText editText;

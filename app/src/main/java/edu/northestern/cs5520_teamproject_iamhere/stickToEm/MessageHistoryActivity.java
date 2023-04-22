@@ -1,4 +1,4 @@
-package edu.northestern.cs5520_teamproject_iamhere;
+package edu.northestern.cs5520_teamproject_iamhere.stickToEm;
 
 import static android.content.ContentValues.TAG;
 
@@ -23,6 +23,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.util.ArrayList;
 import java.util.List;
 
+import edu.northestern.cs5520_teamproject_iamhere.R;
 import edu.northestern.cs5520_teamproject_iamhere.adapter.MessageAdapter;
 import edu.northestern.cs5520_teamproject_iamhere.entity.StickerMessage;
 

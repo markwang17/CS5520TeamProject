@@ -34,14 +34,15 @@
 
 
         <service
-            android:name=".service.VibrationDetectorService"
+            android:name=".service.EmergencyService"
             android:enabled="true"
             android:exported="false" />
 
         <activity
             android:name=".MainActivity"
             android:configChanges="orientation|screenSize|navigation|keyboard|keyboardHidden"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -49,26 +50,29 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".AtYourServiceActivity"
+            android:name=".atYourService.AtYourServiceActivity"
             android:windowSoftInputMode="adjustNothing"
             android:configChanges="keyboard|orientation|screenSize"
             android:label="@string/app_name"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" >
         </activity>
-        <activity android:name=".StickItToEmLoginActivity"/>
-        <activity android:name=".StickItToEmActivity"
+        <activity android:name=".stickToEm.StickItToEmLoginActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
-        <activity android:name=".ReceiveNotificationActivity"
+        <activity android:name=".stickToEm.StickItToEmActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
-        <activity android:name=".MessageHistoryActivity"
+        <activity android:name=".stickToEm.ReceiveNotificationActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
-        <activity android:name=".StickerCountActivity"
+        <activity android:name=".stickToEm.MessageHistoryActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+        <activity android:name=".stickToEm.StickerCountActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
         <activity android:name=".AboutActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
         <activity android:name=".SettingActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
         <activity android:name=".MapActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+        <activity android:name=".ReceiveEmergencyNotificationActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
 
 

@@ -1,4 +1,4 @@
-package edu.northestern.cs5520_teamproject_iamhere;
+package edu.northestern.cs5520_teamproject_iamhere.atYourService;
 
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
@@ -21,6 +21,8 @@ import com.google.android.material.snackbar.Snackbar;
 import java.util.ArrayList;
 import java.util.List;
 
+import edu.northestern.cs5520_teamproject_iamhere.MainActivity;
+import edu.northestern.cs5520_teamproject_iamhere.R;
 import edu.northestern.cs5520_teamproject_iamhere.adapter.PollutantAdapter;
 import edu.northestern.cs5520_teamproject_iamhere.entity.Pollutant;
 import retrofit2.Call;

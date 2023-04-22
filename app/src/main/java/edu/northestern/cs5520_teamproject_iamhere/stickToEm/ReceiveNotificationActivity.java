@@ -1,11 +1,8 @@
-package edu.northestern.cs5520_teamproject_iamhere;
-
-import static android.content.ContentValues.TAG;
+package edu.northestern.cs5520_teamproject_iamhere.stickToEm;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -15,6 +12,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+
+import edu.northestern.cs5520_teamproject_iamhere.R;
 
 
 public class ReceiveNotificationActivity extends AppCompatActivity {

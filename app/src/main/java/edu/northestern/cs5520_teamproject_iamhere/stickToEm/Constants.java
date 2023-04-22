@@ -1,4 +1,6 @@
-package edu.northestern.cs5520_teamproject_iamhere;
+package edu.northestern.cs5520_teamproject_iamhere.stickToEm;
+
+import edu.northestern.cs5520_teamproject_iamhere.R;
 
 public final class Constants {
     private Constants() {

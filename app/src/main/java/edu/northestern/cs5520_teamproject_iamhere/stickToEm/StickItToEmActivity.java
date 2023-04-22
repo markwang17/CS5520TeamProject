@@ -1,4 +1,4 @@
-package edu.northestern.cs5520_teamproject_iamhere;
+package edu.northestern.cs5520_teamproject_iamhere.stickToEm;
 
 import static android.content.ContentValues.TAG;
 
@@ -34,10 +34,10 @@ import com.google.firebase.database.ServerValue;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
+import edu.northestern.cs5520_teamproject_iamhere.R;
 import edu.northestern.cs5520_teamproject_iamhere.adapter.StickerAdapter;
 import edu.northestern.cs5520_teamproject_iamhere.entity.StickerMessage;
 
