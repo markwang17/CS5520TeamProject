@@ -15,6 +15,8 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
+import com.google.android.gms.maps.model.MarkerOptions;
 
 public class ReceiveEmergencyNotificationActivity extends AppCompatActivity implements OnMapReadyCallback {
     private GoogleMap googleMap;
@@ -46,6 +48,8 @@ public class ReceiveEmergencyNotificationActivity extends AppCompatActivity impl
         }
         LatLng latLng = new LatLng(latitude, longitude);
         CameraPosition cameraPosition = new CameraPosition.Builder().target(latLng).zoom(15).build();
+        MarkerOptions markerOptions = new MarkerOptions().position(latLng).title("Emergency Location");
+        Marker marker = googleMap.addMarker(markerOptions);
         googleMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
     }
 
